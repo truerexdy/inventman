@@ -1,0 +1,70 @@
+:root{
+    --mycolor: #03AED2;
+}
+
+@font-face {
+    font-family: Dela;
+    src: url(files/DelaGothicOne-Regular.ttf);
+}
+
+a{
+    color: black;
+}
+
+header{
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    width: 100%;
+}
+
+body{
+    width: 100%;
+    height: 100%;
+}
+
+#nav{
+    padding: 1vw;
+}
+
+.icon{
+    width: 1.25vw;
+}
+
+.button{
+    margin-left: 1vw;
+    margin-right: 1vw;
+    width: 7.5vw;
+}
+
+#title{
+    font-family: Dela;
+    font-size: 2.5vw;
+    width: 75%;
+}
+
+#topbar{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+}
+
+nav{
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    width: 100%;
+}
+
+#nav{
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    width: 100%;
+}
+
+#main{
+    display: flex;
+}
