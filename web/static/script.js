@@ -2,7 +2,7 @@ const table = document.getElementById("table");
 function redirectToAdd() {
   window.location.href = "pages/add.html";
 }
-fetch('localhost:50505/api/')
+fetch('http://192.168.1.7:50505/api/')
   .then(response => {
     if (!response.ok) {
       throw new Error(`HTTP error! Status: ${response.status}`);

@@ -6,6 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="c78db206-3fc9-42c7-b77a-107baf050933" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/rexdy/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/rexdy/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/web/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/static/pages/add.js" beforeDir="false" afterPath="$PROJECT_DIR$/web/static/pages/add.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/static/script.js" beforeDir="false" afterPath="$PROJECT_DIR$/web/static/script.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

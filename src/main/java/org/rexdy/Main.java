@@ -24,19 +24,34 @@ public class Main{
     }
 
     static class restHandler implements HttpHandler {
-        private Connection db = null;
         private final String url = "jdbc:sqlite:" + System.getProperty("user.dir") + "/db/inventry.db";
+
+        private void setCORSHeaders(HttpExchange exchange) {
+            exchange.getResponseHeaders().add("Access-Control-Allow-Origin", "*");
+            exchange.getResponseHeaders().add("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
+            exchange.getResponseHeaders().add("Access-Control-Allow-Headers", "Content-Type,Authorization");
+            exchange.getResponseHeaders().add("Access-Control-Max-Age", "3600");
+        }
+
         @Override
         public void handle(HttpExchange exchange) throws IOException {
+            setCORSHeaders(exchange);
+
+            // Handle preflight requests
+            if (exchange.getRequestMethod().equalsIgnoreCase("OPTIONS")) {
+                exchange.sendResponseHeaders(200, -1);
+                return;
+            }
+            
             String response = "";
             int statusCode;
             Gson gson = new Gson();
             try {
+                Connection db = DriverManager.getConnection(url);
                 switch (exchange.getRequestMethod()) {
                     case "GET":
                         List<product> firstTenUnits = new ArrayList<>();
                         try{
-                            db = DriverManager.getConnection(url);
                             Statement stmt = db.createStatement();
                             String sql = "SELECT * FROM products ORDER BY id DESC LIMIT 10";
                             ResultSet rs = stmt.executeQuery(sql);
@@ -73,7 +88,6 @@ public class Main{
                             body.append(line);
                         }
                         product newproduct = gson.fromJson(body.toString(), product.class);
-                        db = DriverManager.getConnection(url);
                         String sql = "INSERT INTO products (unitname, units, unitprice) VALUES (?, ?, ?)";
                         PreparedStatement pstmt = db.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
                         pstmt.setString(1,newproduct.getUnitname());
